@@ -98,17 +98,22 @@ function selectRandom(array) {
   if (array.length===1) return array[0];
 return array[Math.floor((Math.random()*array.length))];
 }
-console.log(selectRandom(suspectsArray))
 
+var threeMysteries ={
+  suspect: null,
+  weapon: null,
+  room: null
+}
 function pickMystery() {
-let threeMysteries ={
-  murder: null,
-  room: null,
-  weapon: null
-}
+threeMysteries.suspect = selectRandom(suspectsArray);
+threeMysteries.room= selectRandom(roomsArray);
+threeMysteries.weapon= selectRandom(weaponsArray);
+return threeMysteries
 }
 
-// ITERATION 3
-
-function revealMystery() {}
+function revealMystery() {
+  pickMystery();
+  return `${threeMysteries.suspect.firstName} ${threeMysteries.suspect.lastName} killed Mr. Boddy using the ${threeMysteries.weapon.name} in the ${threeMysteries.room.name}!`;
+}
+console.log(revealMystery())
 
