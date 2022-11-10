@@ -111,9 +111,8 @@ threeMysteries.weapon= selectRandom(weaponsArray);
 return threeMysteries
 }
 
-function revealMystery() {
-  pickMystery();
-  return `${threeMysteries.suspect.firstName} ${threeMysteries.suspect.lastName} killed Mr. Boddy using the ${threeMysteries.weapon.name} in the ${threeMysteries.room.name}!`;
+function revealMystery(object) {
+  return `${object.suspect.firstName} ${object.suspect.lastName} killed Mr. Boddy using the ${object.weapon.name} in the ${object.room.name}!`;
 }
-console.log(revealMystery())
+console.log(revealMystery(pickMystery()))
 
